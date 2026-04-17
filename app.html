@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Quiz</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Inputs */
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    /* Buttons */
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: none;
+      background: #4f46e5;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #4338ca;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    /* Timer */
+    #timer {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ef4444;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    /* Question */
+    #questionText {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    /* Options */
+    #options button {
+      background: #f3f4f6;
+      color: #111;
+      border: 1px solid #ddd;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    #options button:hover {
+      background: #e0e7ff;
+    }
+
+    #options button.selected {
+      background: #c7d2fe;
+      border-color: #4f46e5;
+      font-weight: bold;
+    }
+
+    /* Navigation */
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons button {
+      width: 50%;
+    }
+
+    /* Submit button */
+    #submitBtn {
+      margin-top: 15px;
+      background: #10b981;
+    }
+
+    #submitBtn:hover {
+      background: #059669;
+    }
+
+    /* Result */
+    #resultBox {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f9fafb;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Smart Quiz App</h2>
+
+    <!-- Setup Screen -->
+    <div id="setupScreen">
+      <input type="text" id="topicInput" placeholder="Enter Topic (e.g. JS)">
+      <input type="number" id="questionCountInput" placeholder="Number of questions">
+      <input type="number" id="timeInput" placeholder="Time (minutes)">
+      <input type="text" id="difficultyInput" placeholder="Difficulty (easy, medium, hard)">
+      <button id="startBtn">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" style="display: none;">
+      <div id="timer">00:00</div>
+
+      <div id="questionBox">
+        <h3 id="questionText"></h3>
+        <div id="options"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+      </div>
+
+      <button id="submitBtn">Submit Quiz</button>
+
+      <div id="resultBox"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js" defer></script>
+
+</body>
+</html>
